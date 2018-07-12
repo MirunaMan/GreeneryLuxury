@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title></title>
+
+
+<style type="text/css">
+
+.logo{
+	height:40px;
+	margin-left:70px;
+	margin-top:10px;
+	margin-bottom:-20px;
+}
+
+
+body{
+	background-color:whitesmoke;
+	margin:0px 0px 0px 0px;
+	font-family:"Arial Narrow";
+	filter:contrast(90%);
+}
+
+header{
+	height:40px;
+	width:100%;
+}
+
+.topnav{
+	margin-left:10%;
+	margin-top:-10px;
+	overflow:hidden;
+}
+.topnav a {
+    float: left;
+    display: block;
+    padding-left:2%;
+	margin-top:1.5px;
+    text-decoration: none;
+	text-transform:uppercase;
+    font-size: 14px;
+	color:#935859;
+}
+
+.topnav a:hover, .dropdown:hover .drop {
+    color: #E0B8A3;
+}
+
+.topnav a:active, .dropdown:active {
+  
+    color: #E0B8A3;
+}
+
+.dropdown {
+  float: left;
+}
+
+
+.dropdown .drop {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  font-family: inherit;
+  margin-top:-50px;
+  margin-left:20px;
+  margin-right:-10px;
+  text-transform:uppercase;
+  font-size: 14px;
+color:#935859;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+   background-color: hsla(328, 100%, 100%, 0.88) ;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color:#935859;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align:center;
+}
+
+.dropdown-content a:hover {
+	background-color:whitesmoke;
+
+}
+.dropdown:hover .dropdown-content{
+  display: block;
+
+}
+
+
+
+.footer{
+	background-color:#2A4632; 
+	color:whitesmoke;
+	text-align:center;
+	height:30px;
+	font-size:10px;
+	position:fixed;
+	bottom:0;
+	width:100%;
+
+}
+
+.basket{
+	width:30px;
+	padding:0px;
+	float:right;
+	margin-right:70px;
+	margin-top:-30px;
+
+}
+
+
+
+main button{
+	height:20px;
+	width:70px;
+	text-align:center;
+	background: linear-gradient(135deg, rgba(214,161,139,1) 0%,rgba(211,145,135,1) 71%,rgba(209,136,125,1) 100%); 
+	color:white;
+	border:none;
+	font-size:10px;
+	text-transform:uppercase;
+	border-radius:5%;
+}
+
+
+
+.table{
+display:table;
+border:1px solid lightgrey;
+width:1200px;
+position:absolute;
+top:10%;
+left:11%;
+border-spacing:10px;
+color:#602020;
+}
+
+.table img{
+width:100px;
+margin-bottom:-50px;
+}
+
+.row{
+display:table-row;
+}
+
+.cell{
+display:table-cell;
+
+}
+
+input[type="number"]{
+width:25px;
+margin-left:20%;
+}
+
+.totals{
+color:#602020;
+position:absolute;
+right:12%;
+top:60%;
+text-align:center;
+}
+
+.totals button{
+height:40px;
+width:120px;
+font-size:16px;
+margin-top:5%;
+}
+
+.totals-item label, .title{
+font-weight:bold;
+}
+
+input[type="button"] {
+    background-color:#39ac73;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 70px;
+	height:30px;
+	float:right;
+	margin-right:20px;
+}
+
+
+input[type="button"]:hover {
+    opacity: 0.8;
+}
+
+.buttons{
+margin-right:100px;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<header>
+<img src="logo.png" class="logo">
+
+<div class="topnav">
+<a href="index.html" target="_blank" >Home</a>
+<a href="about.html" target="_blank" >About</a>
+<div class="dropdown">
+    <button class="drop" class="active">Shop</button>
+    <div class="dropdown-content">
+    <a href="face.html">Face</a>
+    <a href="hair.html">Hair</a>
+    <a href="body.html">Body</a>
+    </div>
+	</div>
+<a href="contact.html" target="_blank">Contact</a>
+<div class="buttons">
+<input type="button" value="Login" onclick="window.open('login.html')">
+<input type="button" value="Sign Up" onclick="window.open('signup.html')">
+
+</div>
+</div>
+<a href="cart.html"><img src="http://laoblogger.com/images/green-shopping-cart-free-clipart-3.jpg" class="basket"></a>
+</header>
+
+
+<main>
+
+
+<div class="table" id="tabel">
+
+  <div class="row">
+    <label class="cell"></label>
+    <label class="cell"></label>
+    <label class="cell">Price</label>
+    <label class="cell">Quantity</label>
+    <label class="cell"></label>
+    <label class="cell">Total</label>
+  </div>
+
+  <div class="row" id="first">
+
+    <div class="cell">
+      <img src="hair1.jpg">
+    </div>
+    <div class="cell">
+      <div class="title">ILA SHAMPOO FOR REVITALISING HAIR </div>
+      <p class="description">A natural shampoo to provide a deep cleanse and nourishment for beautifully soft hair.</p>
+    </div>
+    <div class="cell" >$<span id="price">18</span></div>
+    <div class="cell" id="value">
+      <input type="number" onclick="fct2(),fct4(),fct5()" id="quantity" value="1" min="1">
+    </div>
+    <div class="cell">
+      <button class="remove" onclick="fct6()">
+        Remove
+      </button>
+    </div>
+    <div class="cell" >$<span id="total_price">18</span></div>
+
+  </div>
+
+  <div class="row" id="second">
+    <div class="cell">
+      <img src="body5.jpg">
+    </div>
+    <div class="cell">
+      <div class="title">CAUDALIE THE DES VIGNES NOURISHING BODY LOTION</div>
+      <p class="description">Enriched with nourishing grape seed oil and antioxidant grape polyphenols,
+this lightweight and easily absorbed body lotion leaves skin feeling soft, moisturised and firmed.</p>
+    </div>
+    <div class="cell">$<span id="price2">22</span></div>
+    <div class="cell">
+      <input type="number" value="1" min="1" id="quantity2" onclick="fct3(),fct4(),fct5()">
+    </div>
+    <div class="cell">
+      <button class="remove" onclick="fct7()">
+        Remove
+      </button>
+    </div>
+    <div class="cell">$<span id="total_price2">22</span></div>
+  </div>
+  
+ </div>
+
+  <div class="totals">
+    <div class="totals-item">
+      <label>Subtotal</label>
+      <div class="totals-value">$<span id="cart_subtotal">40</span></div>
+    </div>
+
+    <div class="totals-item">
+      <label>Shipping</label>
+      <div class="totals-value">$<span id="cart_shipping">15</span></div>
+    </div>
+    <div class="totals-item totals-item-total">
+      <label>Grand Total</label>
+      <div class="totals-value">$<span id="cart_total">55</span></div>
+    </div>
+	
+	 <button class="checkout" onclick="fct()">Checkout</button>
+  </div>
+      
+     
+</main>
+
+
+
+<div class="footer">
+<p>&copy Miruna Manoila,2018 * All Rights Reserved</p>
+</div>
+
+<script type="text/javascript">
+
+function fct(){
+var x=window.confirm("Are you sure you want to send your order?");
+if(x==true){
+alert("Order sent. Your purchase will arrive as soon as possible");
+}
+if(x==false){
+alert("Order was not sent.");
+}
+}
+
+function fct2(){
+var x=document.getElementById("quantity").value;
+var y=document.getElementById("price").innerHTML;
+y=parseInt(y,10);
+document.getElementById("total_price").innerHTML =(x*y);
+
+}
+
+function fct3(){
+var x=document.getElementById("quantity2").value;
+var y=document.getElementById("price2").innerHTML;
+y=parseInt(y,10);
+document.getElementById("total_price2").innerHTML =(x*y);
+
+}
+
+function fct4(){
+var a=document.getElementById("total_price").innerHTML;
+var b=document.getElementById("total_price2").innerHTML;
+a=parseInt(a,10);
+b=parseInt(b,10);
+document.getElementById("cart_subtotal").innerHTML=(a+b);
+}
+
+function fct5(){
+var m=document.getElementById("cart_subtotal").innerHTML;
+var n=15;
+m=parseInt(m,10);
+document.getElementById("cart_total").innerHTML=(m+n);
+}
+
+function fct6(){
+var d1=document.getElementById("tabel");
+var p1=document.getElementById("first");
+d1.removeChild(p1);
+}
+
+function fct7(){
+var d1=document.getElementById("tabel");
+var p1=document.getElementById("second");
+d1.removeChild(p1);
+}
+
+
+
+</script>
+</body>
+</html>
